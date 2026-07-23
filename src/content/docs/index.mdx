@@ -1,40 +1,32 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Welcome to the Fstop API docs
+description: Documentation for the Fstop API
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Manage photography projects, clients, and bookings.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/fstop-logo.jpg
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Get started
+      link: /guides/getting-started
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## About the Fstop API
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+<CardGrid>
+	<Card title="Built with the Django REST Framework" icon="pencil">
+		The Fstop API is built using Django REST Framework, ensuring robust, scalable, and easy-to-use endpoints.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Authentication and security" icon="add-document">
+		Securely integrate with the Fstop API using JWT to manage projects, clients, and bookings with confidence.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Developer-friendly documentation" icon="setting">
+		Easily navigate the Fstop API documentation with guides and a complete API reference.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Simple, intuitive endpoints" icon="open-book">
+		Straightforward REST endpoints for creating and retrieving photography business data.
 	</Card>
 </CardGrid>

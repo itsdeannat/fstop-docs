@@ -1,0 +1,109 @@
+---
+title: Getting started with the Fstop API
+description: A guide to help you get started with the Fstop API
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Code } from 'astro-expressive-code/components';
+import { Aside } from '@astrojs/starlight/components';
+
+The Fstop API is a RESTful API that allows you to manage photography projects, clients, and bookings. The API returns JSON data and uses traditional HTTP methods to perform actions on data.
+
+In this guide, you'll authenticate with the API to get a JSON Web Token (JWT) so you can make calls to the API.
+
+## Before you begin
+
+To begin using the API, you need to complete two steps:
+
+<Steps>
+1. Sign up for the Fstop API
+2. Get a JSON Web Token (JWT) to make API requests
+</Steps>
+
+## Sign up for the Fstop API
+
+Before you can get a JWT, you need to sign up for the Fstop API. Your username and password can only consist of letters and numbers.
+
+To sign up for the API:
+
+<Steps>
+1. Open a terminal and run the following command to create a new user account:
+   ```bash
+   curl -X POST http://localhost:8000/api/users/ \
+     -H "Content-Type: application/json" \
+     -d '{
+       "username": "your_username",
+       "password": "your_password"
+     }'
+   ```
+   
+   You'll receive a response confirming your account was created:
+   ```json
+   {
+     "id": 1,
+     "username": "your_username"
+   }
+   ```
+
+</Steps>
+
+## Request a JSON Web Token
+
+After you sign up for the API, you need to request a JSON Web Token (JWT) so you can access resources. Without a JWT, you will not be able to make `GET` or `POST` requests to the Fstop API.
+
+To request a JWT:
+
+<Steps>
+1. In your terminal, run the following command:
+   ```bash
+   curl -X POST http://localhost:8000/api/token/ \
+     -H "Content-Type: application/json" \
+     -d '{
+       "username": "your_username",
+       "password": "your_password"
+     }'
+   ```
+   
+   You'll receive an access token and a refresh token after you send your credentials:
+   ```json
+   {
+     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+     "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+   }
+   ```
+
+</Steps>
+
+### Request a refresh token
+
+The access token expires after 15 minutes. You can use the refresh token to request a new access token.
+
+To request a new access token:
+
+<Steps>
+1. In your terminal, run the following command:
+   ```bash
+   curl -X POST http://localhost:8000/api/token/refresh/ \
+     -H "Content-Type: application/json" \
+     -d '{
+       "refresh": "your_refresh_token"
+     }'
+   ```
+   
+   You'll receive a new access token and a new refresh token:
+   ```json
+   {
+     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+     "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+   }
+   ```
+
+   <Aside type="caution">
+   Be sure to store your refresh token in a secure location. Your refresh token is valid for 24 hours. See [Authentication](./authentication) for more information.
+   </Aside>
+
+</Steps>
+
+## Next steps
+
+Congratulations! You've successfully signed up for the API and received a JWT. You're now ready to start making requests to the Fstop API. Check out the feature guides to learn how to create and retrieve projects, clients, and bookings.
