@@ -1,0 +1,95 @@
+---
+title: Create a gallery
+description: A guide to creating a new gallery using the Fstop API
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Code } from 'astro-expressive-code/components';
+import { Aside } from '@astrojs/starlight/components';
+
+The Fstop API includes an endpoint that allows client applications to create new galleries in the database.
+
+In this guide, you'll make a `POST` request to the `/api/galleries/` endpoint to create a new gallery for a project.
+
+## Before you begin
+
+Before you make a `POST` request, ensure that you have an access token. For instructions on requesting an access token, see [Getting started with the Fstop API](./getting-started).
+
+You'll also need the UUID of an existing project to associate with the gallery.
+
+## Make a POST request
+
+<Steps>
+1. Open a terminal and run the following command:
+   ```bash
+   curl -X POST http://localhost:8000/api/galleries/ \
+     -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "project_id": "660e8400-e29b-41d4-a716-446655440000",
+       "gallery_name": "Reception Photos",
+       "picture_count": 89,
+       "is_visible": true,
+       "url": "https://example.com/galleries/reception"
+     }'
+   ```
+   
+   The API returns a `201 CREATED` and the details of the newly created gallery:
+   ```json
+   {
+     "id": "880e8400-e29b-41d4-a716-446655440001",
+     "project": {
+       "id": "660e8400-e29b-41d4-a716-446655440000",
+       "project_name": "Wedding",
+       "project_type": "event",
+       "client": {
+         "id": "550e8400-e29b-41d4-a716-446655440000",
+         "first_name": "John",
+         "last_name": "Doe",
+         "city": "Cleveland",
+         "state": "OH",
+         "zip_code": "44122",
+         "email": "john.doe@example.com",
+         "phone_number": "+12161231234",
+         "created_at": "2026-05-21T10:00:00Z"
+       },
+       "created_at": "2026-05-21T10:15:00Z"
+     },
+     "gallery_name": "Reception Photos",
+     "picture_count": 89,
+     "is_visible": true,
+     "url": "https://example.com/galleries/reception",
+     "created_at": "2026-05-21T10:35:00Z"
+   }
+   ```
+
+2. Using the Python SDK:
+   ```python
+   from fstop_sdk import FstopClient
+   from fstop_sdk.models import GalleryCreateRequest
+
+   client = FstopClient(access_token="YOUR_ACCESS_TOKEN")
+   
+   new_gallery = GalleryCreateRequest(
+       project_id="660e8400-e29b-41d4-a716-446655440000",
+       gallery_name="Reception Photos",
+       picture_count=89,
+       is_visible=True,
+       url="https://example.com/galleries/reception"
+   )
+   
+   created_gallery = client.galleries.create(new_gallery)
+   print(f"Gallery created with ID: {created_gallery.id}")
+   ```
+
+</Steps>
+
+<Aside type="note">
+The `is_visible` field determines whether the gallery is publicly accessible. Set it to `false` to keep galleries private.
+</Aside>
+
+You can use the returned gallery data in your application. The `id` field uniquely identifies the gallery and can be used to update or manage the gallery details.
+
+## What to do next
+
+See [POST /api/galleries/](/api-reference) for a full list of request parameters and response schemas.

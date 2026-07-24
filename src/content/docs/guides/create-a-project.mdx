@@ -1,0 +1,83 @@
+---
+title: Create a project
+description: A guide to creating a new project using the Fstop API
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Code } from 'astro-expressive-code/components';
+import { Aside } from '@astrojs/starlight/components';
+
+The Fstop API includes an endpoint that allows client applications to create new projects in the database.
+
+In this guide, you'll make a `POST` request to the `/api/projects/` endpoint to create a new project for a client.
+
+## Before you begin
+
+Before you make a `POST` request, ensure that you have an access token. For instructions on requesting an access token, see [Getting started with the Fstop API](./getting-started).
+
+You'll also need the UUID of an existing client to associate with the project.
+
+## Make a POST request
+
+<Steps>
+1. Open a terminal and run the following command:
+   ```bash
+   curl -X POST http://localhost:8000/api/projects/ \
+     -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "project_name": "Birthday Party",
+       "project_type": "party",
+       "client_id": "550e8400-e29b-41d4-a716-446655440002"
+     }'
+   ```
+   
+   The API returns a `201 CREATED` and the details of the newly created project:
+   ```json
+   {
+     "id": "660e8400-e29b-41d4-a716-446655440002",
+     "project_name": "Birthday Party",
+     "project_type": "party",
+     "client": {
+       "id": "550e8400-e29b-41d4-a716-446655440002",
+       "first_name": "Alice",
+       "last_name": "Johnson",
+       "city": "Cincinnati",
+       "state": "OH",
+       "zip_code": "45202",
+       "email": "alice.johnson@example.com",
+       "phone_number": "+12161239999",
+       "created_at": "2026-05-21T10:10:00Z"
+     },
+     "created_at": "2026-05-21T10:25:00Z"
+   }
+   ```
+
+2. Using the Python SDK:
+   ```python
+   from fstop_sdk import FstopClient
+   from fstop_sdk.models import ProjectCreateRequest
+
+   client = FstopClient(access_token="YOUR_ACCESS_TOKEN")
+   
+   new_project = ProjectCreateRequest(
+       project_name="Birthday Party",
+       project_type="party",
+       client_id="550e8400-e29b-41d4-a716-446655440002"
+   )
+   
+   created_project = client.projects.create(new_project)
+   print(f"Project created with ID: {created_project.id}")
+   ```
+
+</Steps>
+
+<Aside type="note">
+Valid project types are: `event`, `portrait`, and `party`.
+</Aside>
+
+You can use the returned project data in your application. The `id` field uniquely identifies the project and can be used to create bookings and galleries associated with this project.
+
+## What to do next
+
+See [POST /api/projects/](/api-reference) for a full list of request parameters and response schemas.
