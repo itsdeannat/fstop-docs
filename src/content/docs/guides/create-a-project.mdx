@@ -55,19 +55,16 @@ You'll also need the UUID of an existing client to associate with the project.
 
 2. Using the Python SDK:
    ```python
-   from fstop_sdk import FstopClient
-   from fstop_sdk.models import ProjectCreateRequest
+   from fstop import Fstop
 
-   client = FstopClient(access_token="YOUR_ACCESS_TOKEN")
-   
-   new_project = ProjectCreateRequest(
-       project_name="Birthday Party",
-       project_type="party",
-       client_id="550e8400-e29b-41d4-a716-446655440002"
-   )
-   
-   created_project = client.projects.create(new_project)
-   print(f"Project created with ID: {created_project.id}")
+   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
+       created_project = f_client.projects.create_project(
+           project_name="Birthday Party",
+           project_type="party",
+           client_id="550e8400-e29b-41d4-a716-446655440002"
+       )
+       
+       print(f"Project created with ID: {created_project.id}")
    ```
 
 </Steps>

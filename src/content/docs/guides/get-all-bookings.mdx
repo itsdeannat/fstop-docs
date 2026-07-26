@@ -56,13 +56,13 @@ Before you make a `GET` request, ensure that you have an access token. For instr
 
 2. Using the Python SDK:
    ```python
-   from fstop_sdk import FstopClient
+   from fstop import Fstop
 
-   client = FstopClient(access_token="YOUR_ACCESS_TOKEN")
-   bookings = client.bookings.list()
+   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
+       bookings = f_client.bookings.list_bookings()
 
-   for booking in bookings:
-       print(f"{booking.project.project_name} - {booking.date} at {booking.time}")
+       for booking in bookings:
+           print(f"{booking.project.project_name} - {booking.date} at {booking.time}")
    ```
 
 </Steps>

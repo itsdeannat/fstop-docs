@@ -48,13 +48,13 @@ Before you make a `GET` request, ensure that you have an access token. For instr
 
 2. Using the Python SDK:
    ```python
-   from fstop_sdk import FstopClient
+   from fstop import Fstop
 
-   client = FstopClient(access_token="YOUR_ACCESS_TOKEN")
-   projects = client.projects.list()
+   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
+       projects = f_client.projects.list_projects()
 
-   for project in projects:
-       print(f"{project.project_name} ({project.project_type}) - {project.client.first_name} {project.client.last_name}")
+       for project in projects:
+           print(f"{project.project_name} ({project.project_type}) - {project.client.first_name} {project.client.last_name}")
    ```
 
 </Steps>

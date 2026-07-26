@@ -53,13 +53,13 @@ Before you make a `GET` request, ensure that you have an access token. For instr
 
 2. Using the Python SDK:
    ```python
-   from fstop_sdk import FstopClient
+   from fstop import Fstop
 
-   client = FstopClient(access_token="YOUR_ACCESS_TOKEN")
-   clients = client.clients.list()
+   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
+       clients = f_client.clients.list_clients()
 
-   for c in clients:
-       print(f"{c.first_name} {c.last_name} - {c.email}")
+       for c in clients:
+           print(f"{c.first_name} {c.last_name} - {c.email}")
    ```
 
 </Steps>

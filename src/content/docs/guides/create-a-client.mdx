@@ -51,23 +51,20 @@ Before you make a `POST` request, ensure that you have an access token. For inst
 
 2. Using the Python SDK:
    ```python
-   from fstop_sdk import FstopClient
-   from fstop_sdk.models import ClientCreateRequest
+   from fstop import Fstop
 
-   client = FstopClient(access_token="YOUR_ACCESS_TOKEN")
-   
-   new_client = ClientCreateRequest(
-       first_name="Alice",
-       last_name="Johnson",
-       city="Cincinnati",
-       state="OH",
-       zip_code="45202",
-       email="alice.johnson@example.com",
-       phone_number="+12161239999"
-   )
-   
-   created_client = client.clients.create(new_client)
-   print(f"Client created with ID: {created_client.id}")
+   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
+       created_client = f_client.clients.create_client(
+           first_name="Alice",
+           last_name="Johnson",
+           city="Cincinnati",
+           state="OH",
+           zip_code="45202",
+           email="alice.johnson@example.com",
+           phone_number="+12161239999"
+       )
+       
+       print(f"Client created with ID: {created_client.id}")
    ```
 
 </Steps>
