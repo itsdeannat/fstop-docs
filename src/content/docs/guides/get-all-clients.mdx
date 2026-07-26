@@ -5,6 +5,8 @@ description: A guide to retrieving all clients using the Fstop API
 
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
+import get_all_clients_curl from '/src/snippets/get_requests/get_all_clients_curl.sh?raw';
+import get_all_clients_sdk from '/src/snippets/sdk/get_all_clients_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to retrieve all clients from the database.
 
@@ -18,10 +20,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X GET http://localhost:8000/api/clients/ \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-   ```
+   <Code code={get_all_clients_curl} lang="shellscript" title="get_all_clients.sh" />
    
    The API returns a `200 OK` and a list of all clients:
    ```json
@@ -52,15 +51,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       clients = f_client.clients.list_clients()
-
-       for c in clients:
-           print(f"{c.first_name} {c.last_name} - {c.email}")
-   ```
+   <Code code={get_all_clients_sdk} lang="python" title="get_all_clients.py" />
 
 </Steps>
 

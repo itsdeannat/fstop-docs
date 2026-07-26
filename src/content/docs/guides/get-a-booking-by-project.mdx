@@ -5,6 +5,8 @@ description: A guide to retrieving bookings for a specific project using the Fst
 
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
+import get_bookings_by_project_curl from '/src/snippets/get_requests/get_bookings_by_project_curl.sh?raw';
+import get_bookings_by_project_sdk from '/src/snippets/sdk/get_bookings_by_project_sdk.py?raw';
 
 The Fstop API allows you to retrieve bookings filtered by a specific project using a query parameter.
 
@@ -20,10 +22,7 @@ You'll also need the UUID of the project whose bookings you want to retrieve.
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X GET "http://localhost:8000/api/bookings/?project_id=660e8400-e29b-41d4-a716-446655440000" \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-   ```
+   <Code code={get_bookings_by_project_curl} lang="shellscript" title="get_bookings_by_project.sh" />
    
    The API returns a `200 OK` and a list of bookings for that project:
    ```json
@@ -82,19 +81,7 @@ You'll also need the UUID of the project whose bookings you want to retrieve.
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       bookings = f_client.bookings.list_bookings()
-       
-       # Filter bookings by project_id client-side
-       project_id = "660e8400-e29b-41d4-a716-446655440000"
-       filtered = [b for b in bookings if b.project.id == project_id]
-
-       for booking in filtered:
-           print(f"{booking.date} at {booking.time} - {booking.location}")
-   ```
+   <Code code={get_bookings_by_project_sdk} lang="python" title="get_bookings_by_project.py" />
 
 </Steps>
 

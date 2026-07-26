@@ -5,6 +5,8 @@ description: A guide to retrieving all projects using the Fstop API
 
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
+import get_all_projects_curl from '/src/snippets/get_requests/get_all_projects_curl.sh?raw';
+import get_all_projects_sdk from '/src/snippets/sdk/get_all_projects_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to retrieve all projects from the database.
 
@@ -18,10 +20,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X GET http://localhost:8000/api/projects/ \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-   ```
+   <Code code={get_all_projects_curl} lang="shellscript" title="get_all_projects.sh" />
    
    The API returns a `200 OK` and a list of all projects:
    ```json
@@ -47,15 +46,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       projects = f_client.projects.list_projects()
-
-       for project in projects:
-           print(f"{project.project_name} ({project.project_type}) - {project.client.first_name} {project.client.last_name}")
-   ```
+   <Code code={get_all_projects_sdk} lang="python" title="get_all_projects.py" />
 
 </Steps>
 

@@ -6,6 +6,8 @@ description: A guide to creating a new client using the Fstop API
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import { Aside } from '@astrojs/starlight/components';
+import create_client_curl from '/src/snippets/post_requests/create_client_curl.sh?raw';
+import create_client_sdk from '/src/snippets/sdk/create_client_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to create new clients in the database.
 
@@ -19,20 +21,7 @@ Before you make a `POST` request, ensure that you have an access token. For inst
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X POST http://localhost:8000/api/clients/ \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "first_name": "Alice",
-       "last_name": "Johnson",
-       "city": "Cincinnati",
-       "state": "OH",
-       "zip_code": "45202",
-       "email": "alice.johnson@example.com",
-       "phone_number": "+12161239999"
-     }'
-   ```
+   <Code code={create_client_curl} lang="shellscript" title="create_client.sh" />
    
    The API returns a `201 CREATED` and the details of the newly created client:
    ```json
@@ -50,22 +39,7 @@ Before you make a `POST` request, ensure that you have an access token. For inst
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       created_client = f_client.clients.create_client(
-           first_name="Alice",
-           last_name="Johnson",
-           city="Cincinnati",
-           state="OH",
-           zip_code="45202",
-           email="alice.johnson@example.com",
-           phone_number="+12161239999"
-       )
-       
-       print(f"Client created with ID: {created_client.id}")
-   ```
+   <Code code={create_client_sdk} lang="python" title="create_client.py" />
 
 </Steps>
 

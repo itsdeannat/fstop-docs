@@ -5,6 +5,8 @@ description: A guide to retrieving projects for a specific client using the Fsto
 
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
+import get_projects_by_client_curl from '/src/snippets/get_requests/get_projects_by_client_curl.sh?raw';
+import get_projects_by_client_sdk from '/src/snippets/sdk/get_projects_by_client_sdk.py?raw';
 
 The Fstop API allows you to retrieve projects filtered by a specific client using a query parameter.
 
@@ -20,10 +22,7 @@ You'll also need the UUID of the client whose projects you want to retrieve.
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X GET "http://localhost:8000/api/projects/?client_id=550e8400-e29b-41d4-a716-446655440000" \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-   ```
+   <Code code={get_projects_by_client_curl} lang="shellscript" title="get_projects_by_client.sh" />
    
    The API returns a `200 OK` and a list of projects for that client:
    ```json
@@ -66,19 +65,7 @@ You'll also need the UUID of the client whose projects you want to retrieve.
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       projects = f_client.projects.list_projects()
-       
-       # Filter projects by client_id client-side
-       client_id = "550e8400-e29b-41d4-a716-446655440000"
-       filtered = [p for p in projects if p.client.id == client_id]
-
-       for project in filtered:
-           print(f"{project.project_name} ({project.project_type})")
-   ```
+   <Code code={get_projects_by_client_sdk} lang="python" title="get_projects_by_client.py" />
 
 </Steps>
 

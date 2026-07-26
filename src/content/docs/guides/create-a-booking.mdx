@@ -6,6 +6,8 @@ description: A guide to creating a new booking using the Fstop API
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import { Aside } from '@astrojs/starlight/components';
+import create_booking_curl from '/src/snippets/post_requests/create_booking_curl.sh?raw';
+import create_booking_sdk from '/src/snippets/sdk/create_booking_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to create new bookings in the database.
 
@@ -21,18 +23,7 @@ You'll also need the UUID of an existing project to associate with the booking.
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X POST http://localhost:8000/api/bookings/ \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "project_id": "660e8400-e29b-41d4-a716-446655440000",
-       "date": "2026-06-15",
-       "time": "14:00:00",
-       "duration": 480,
-       "location": "Downtown Venue"
-     }'
-   ```
+   <Code code={create_booking_curl} lang="shellscript" title="create_booking.sh" />
    
    The API returns a `201 CREATED` and the details of the newly created booking:
    ```json
@@ -64,21 +55,7 @@ You'll also need the UUID of an existing project to associate with the booking.
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-   from datetime import date
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       created_booking = f_client.bookings.create_booking(
-           project_id="660e8400-e29b-41d4-a716-446655440000",
-           date_=date.fromisoformat("2026-06-15"),
-           time="14:00:00",
-           duration=480,
-           location="Downtown Venue"
-       )
-       
-       print(f"Booking created with ID: {created_booking.id}")
-   ```
+   <Code code={create_booking_sdk} lang="python" title="create_booking.py" />
 
 </Steps>
 

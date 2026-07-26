@@ -6,6 +6,8 @@ description: A guide to creating a new project using the Fstop API
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import { Aside } from '@astrojs/starlight/components';
+import create_project_curl from '/src/snippets/post_requests/create_project_curl.sh?raw';
+import create_project_sdk from '/src/snippets/sdk/create_project_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to create new projects in the database.
 
@@ -21,16 +23,7 @@ You'll also need the UUID of an existing client to associate with the project.
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X POST http://localhost:8000/api/projects/ \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "project_name": "Birthday Party",
-       "project_type": "party",
-       "client_id": "550e8400-e29b-41d4-a716-446655440002"
-     }'
-   ```
+   <Code code={create_project_curl} lang="shellscript" title="create_project.sh" />
    
    The API returns a `201 CREATED` and the details of the newly created project:
    ```json
@@ -54,18 +47,7 @@ You'll also need the UUID of an existing client to associate with the project.
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       created_project = f_client.projects.create_project(
-           project_name="Birthday Party",
-           project_type="party",
-           client_id="550e8400-e29b-41d4-a716-446655440002"
-       )
-       
-       print(f"Project created with ID: {created_project.id}")
-   ```
+   <Code code={create_project_sdk} lang="python" title="create_project.py" />
 
 </Steps>
 

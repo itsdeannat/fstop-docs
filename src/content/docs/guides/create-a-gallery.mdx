@@ -6,6 +6,8 @@ description: A guide to creating a new gallery using the Fstop API
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import { Aside } from '@astrojs/starlight/components';
+import create_gallery_curl from '/src/snippets/post_requests/create_gallery_curl.sh?raw';
+import create_gallery_sdk from '/src/snippets/sdk/create_gallery_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to create new galleries in the database.
 
@@ -21,18 +23,7 @@ You'll also need the UUID of an existing project to associate with the gallery.
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X POST http://localhost:8000/api/galleries/ \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "project_id": "660e8400-e29b-41d4-a716-446655440000",
-       "gallery_name": "Reception Photos",
-       "picture_count": 89,
-       "is_visible": true,
-       "url": "https://example.com/galleries/reception"
-     }'
-   ```
+   <Code code={create_gallery_curl} lang="shellscript" title="create_gallery.sh" />
    
    The API returns a `201 CREATED` and the details of the newly created gallery:
    ```json
@@ -64,20 +55,7 @@ You'll also need the UUID of an existing project to associate with the gallery.
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       created_gallery = f_client.galleries.create_gallery(
-           project_id="660e8400-e29b-41d4-a716-446655440000",
-           gallery_name="Reception Photos",
-           picture_count=89,
-           is_visible=True,
-           url="https://example.com/galleries/reception"
-       )
-       
-       print(f"Gallery created with ID: {created_gallery.id}")
-   ```
+   <Code code={create_gallery_sdk} lang="python" title="create_gallery.py" />
 
 </Steps>
 

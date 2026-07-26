@@ -5,6 +5,8 @@ description: A guide to retrieving all bookings using the Fstop API
 
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
+import get_all_bookings_curl from '/src/snippets/get_requests/get_all_bookings_curl.sh?raw';
+import get_all_bookings_sdk from '/src/snippets/sdk/get_all_bookings_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to retrieve all bookings from the database.
 
@@ -18,10 +20,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
 
 <Steps>
 1. Open a terminal and run the following command:
-   ```bash
-   curl -X GET http://localhost:8000/api/bookings/ \
-     -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-   ```
+   <Code code={get_all_bookings_curl} lang="shellscript" title="get_all_bookings.sh" />
    
    The API returns a `200 OK` and a list of all bookings:
    ```json
@@ -55,15 +54,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
    ```
 
 2. Using the Python SDK:
-   ```python
-   from fstop import Fstop
-
-   with Fstop(jwt_auth="YOUR_ACCESS_TOKEN") as f_client:
-       bookings = f_client.bookings.list_bookings()
-
-       for booking in bookings:
-           print(f"{booking.project.project_name} - {booking.date} at {booking.time}")
-   ```
+   <Code code={get_all_bookings_sdk} lang="python" title="get_all_bookings.py" />
 
 </Steps>
 
