@@ -6,6 +6,7 @@ description: A guide to retrieving bookings for a specific project using the Fst
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import get_bookings_by_project_curl from '/src/snippets/get_requests/get_bookings_by_project_curl.sh?raw';
+import get_bookings_by_project_response from '/src/snippets/responses/get_bookings_by_project_response.json?raw';
 import get_bookings_by_project_sdk from '/src/snippets/sdk/get_bookings_by_project_sdk.py?raw';
 
 The Fstop API allows you to retrieve bookings filtered by a specific project using a query parameter.
@@ -25,60 +26,7 @@ You'll also need the UUID of the project whose bookings you want to retrieve.
    <Code code={get_bookings_by_project_curl} lang="shellscript" title="get_bookings_by_project.sh" />
    
    The API returns a `200 OK` and a list of bookings for that project:
-   ```json
-   [
-     {
-       "id": "770e8400-e29b-41d4-a716-446655440000",
-       "project": {
-         "id": "660e8400-e29b-41d4-a716-446655440000",
-         "project_name": "Wedding",
-         "project_type": "event",
-         "client": {
-           "id": "550e8400-e29b-41d4-a716-446655440000",
-           "first_name": "John",
-           "last_name": "Doe",
-           "city": "Cleveland",
-           "state": "OH",
-           "zip_code": "44122",
-           "email": "john.doe@example.com",
-           "phone_number": "+12161231234",
-           "created_at": "2026-05-21T10:00:00Z"
-         },
-         "created_at": "2026-05-21T10:15:00Z"
-       },
-       "date": "2026-06-15",
-       "time": "14:00:00",
-       "duration": 480,
-       "location": "Downtown Venue",
-       "created_at": "2026-05-21T10:30:00Z"
-     },
-     {
-       "id": "770e8400-e29b-41d4-a716-446655440001",
-       "project": {
-         "id": "660e8400-e29b-41d4-a716-446655440000",
-         "project_name": "Wedding",
-         "project_type": "event",
-         "client": {
-           "id": "550e8400-e29b-41d4-a716-446655440000",
-           "first_name": "John",
-           "last_name": "Doe",
-           "city": "Cleveland",
-           "state": "OH",
-           "zip_code": "44122",
-           "email": "john.doe@example.com",
-           "phone_number": "+12161231234",
-           "created_at": "2026-05-21T10:00:00Z"
-         },
-         "created_at": "2026-05-21T10:15:00Z"
-       },
-       "date": "2026-06-16",
-       "time": "10:00:00",
-       "duration": 240,
-       "location": "Downtown Venue",
-       "created_at": "2026-05-21T10:35:00Z"
-     }
-   ]
-   ```
+   <Code code={get_bookings_by_project_response} lang="json" title="get_bookings_by_project_response.json" />
 
 2. Using the Python SDK:
    <Code code={get_bookings_by_project_sdk} lang="python" title="get_bookings_by_project.py" />

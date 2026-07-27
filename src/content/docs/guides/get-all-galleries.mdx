@@ -6,6 +6,7 @@ description: A guide to retrieving all galleries using the Fstop API
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import get_all_galleries_curl from '/src/snippets/get_requests/get_all_galleries_curl.sh?raw';
+import get_all_galleries_response from '/src/snippets/responses/get_all_galleries_response.json?raw';
 import get_all_galleries_sdk from '/src/snippets/sdk/get_all_galleries_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to retrieve all galleries from the database.
@@ -23,35 +24,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
    <Code code={get_all_galleries_curl} lang="shellscript" title="get_all_galleries.sh" />
    
    The API returns a `200 OK` and a list of all galleries:
-   ```json
-   [
-     {
-       "id": "880e8400-e29b-41d4-a716-446655440000",
-       "project": {
-         "id": "660e8400-e29b-41d4-a716-446655440000",
-         "project_name": "Wedding",
-         "project_type": "event",
-         "client": {
-           "id": "550e8400-e29b-41d4-a716-446655440000",
-           "first_name": "John",
-           "last_name": "Doe",
-           "city": "Cleveland",
-           "state": "OH",
-           "zip_code": "44122",
-           "email": "john.doe@example.com",
-           "phone_number": "+12161231234",
-           "created_at": "2026-05-21T10:00:00Z"
-         },
-         "created_at": "2026-05-21T10:15:00Z"
-       },
-       "gallery_name": "Ceremony Photos",
-       "picture_count": 125,
-       "is_visible": true,
-       "url": "https://example.com/galleries/ceremony",
-       "created_at": "2026-05-21T10:35:00Z"
-     }
-   ]
-   ```
+   <Code code={get_all_galleries_response} lang="json" title="get_all_galleries_response.json" />
 
 2. Using the Python SDK:
    <Code code={get_all_galleries_sdk} lang="python" title="get_all_galleries.py" />

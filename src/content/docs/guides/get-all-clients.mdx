@@ -6,6 +6,7 @@ description: A guide to retrieving all clients using the Fstop API
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import get_all_clients_curl from '/src/snippets/get_requests/get_all_clients_curl.sh?raw';
+import get_all_clients_response from '/src/snippets/responses/get_all_clients_response.json?raw';
 import get_all_clients_sdk from '/src/snippets/sdk/get_all_clients_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to retrieve all clients from the database.
@@ -23,32 +24,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
    <Code code={get_all_clients_curl} lang="shellscript" title="get_all_clients.sh" />
    
    The API returns a `200 OK` and a list of all clients:
-   ```json
-   [
-     {
-       "id": "550e8400-e29b-41d4-a716-446655440000",
-       "first_name": "John",
-       "last_name": "Doe",
-       "city": "Cleveland",
-       "state": "OH",
-       "zip_code": "44122",
-       "email": "john.doe@example.com",
-       "phone_number": "+12161231234",
-       "created_at": "2026-05-21T10:00:00Z"
-     },
-     {
-       "id": "550e8400-e29b-41d4-a716-446655440001",
-       "first_name": "Jane",
-       "last_name": "Smith",
-       "city": "Columbus",
-       "state": "OH",
-       "zip_code": "43215",
-       "email": "jane.smith@example.com",
-       "phone_number": "+12161235678",
-       "created_at": "2026-05-21T10:05:00Z"
-     }
-   ]
-   ```
+   <Code code={get_all_clients_response} lang="json" title="get_all_clients_response.json" />
 
 2. Using the Python SDK:
    <Code code={get_all_clients_sdk} lang="python" title="get_all_clients.py" />
