@@ -1,27 +1,16 @@
 [
   {
-    "id": "880e8400-e29b-41d4-a716-446655440000",
-    "project": {
-      "id": "660e8400-e29b-41d4-a716-446655440000",
-      "project_name": "Wedding",
-      "project_type": "event",
-      "client": {
-        "id": "550e8400-e29b-41d4-a716-446655440000",
-        "first_name": "John",
-        "last_name": "Doe",
-        "city": "Cleveland",
-        "state": "OH",
-        "zip_code": "44122",
-        "email": "john.doe@example.com",
-        "phone_number": "+12161231234",
-        "created_at": "2026-05-21T10:00:00Z"
-      },
-      "created_at": "2026-05-21T10:15:00Z"
-    },
     "gallery_name": "Ceremony Photos",
     "picture_count": 125,
     "is_visible": true,
-    "url": "https://example.com/galleries/ceremony",
+    "url": "https://gallery.fstop.com/ceremony-photos",
     "created_at": "2026-05-21T10:35:00Z"
+  },
+  {
+    "gallery_name": "Picnic Photos",
+    "picture_count": 89,
+    "is_visible": false,
+    "url": "https://gallery.fstop.com/picnic-photos",
+    "created_at": "2026-05-20T14:20:00Z"
   }
 ]

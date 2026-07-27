@@ -1,27 +1,52 @@
 [
   {
-    "id": "770e8400-e29b-41d4-a716-446655440000",
+    "id": "dfeca3aa-31f3-4d79-a487-62ea612a6875",
     "project": {
-      "id": "660e8400-e29b-41d4-a716-446655440000",
-      "project_name": "Wedding",
-      "project_type": "event",
+      "id": "5e0c74ea-9962-450b-8ec8-af460a5fe976",
+      "project_name": "Birthday Party",
+      "project_type": "party",
       "client": {
-        "id": "550e8400-e29b-41d4-a716-446655440000",
-        "first_name": "John",
-        "last_name": "Doe",
-        "city": "Cleveland",
+        "id": "7c709f54-7a18-4f10-8a3e-8e4cb9bb8242",
+        "first_name": "Alice",
+        "last_name": "Johnson",
+        "city": "Cincinnati",
         "state": "OH",
-        "zip_code": "44122",
-        "email": "john.doe@example.com",
-        "phone_number": "+12161231234",
-        "created_at": "2026-05-21T10:00:00Z"
+        "zip_code": "45202",
+        "email": "alice.johnson@example.com",
+        "phone_number": "+12161239999",
+        "created_at": "2026-05-25T01:05:46.189023Z"
       },
-      "created_at": "2026-05-21T10:15:00Z"
+      "created_at": "2026-05-25T01:37:46.765601Z"
     },
-    "date": "2026-06-15",
+    "date": "2026-07-12",
     "time": "14:00:00",
     "duration": 480,
     "location": "Downtown Venue",
-    "created_at": "2026-05-21T10:30:00Z"
+    "created_at": "2026-05-25T01:51:08.333028Z"
+  },
+  {
+    "id": "a4b9da24-da9b-444e-ab30-0f9a65489886",
+    "project": {
+      "id": "cc0dd84d-a50d-4ad5-8e94-e9dcb33d00e3",
+      "project_name": "Bob's Birthday Party",
+      "project_type": "party",
+      "client": {
+        "id": "88e0de45-8197-4425-a390-3401348cc0bb",
+        "first_name": "Bob",
+        "last_name": "Barker",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "07008",
+        "email": "bob.barker@gmail.com",
+        "phone_number": "+12126885200",
+        "created_at": "2026-05-21T01:23:38.570263Z"
+      },
+      "created_at": "2026-05-21T01:30:04.766552Z"
+    },
+    "date": "2026-07-12",
+    "time": "14:00:00",
+    "duration": 480,
+    "location": "Downtown Venue",
+    "created_at": "2026-05-25T02:00:45.998094Z"
   }
 ]
