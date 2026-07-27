@@ -30,7 +30,9 @@ export default defineConfig({
 						{ label: 'Create a project', slug: 'guides/create-a-project' },
 						{ label: 'Get all bookings', slug: 'guides/get-all-bookings' },
 						{ label: 'Get a booking by project', slug: 'guides/get-a-booking-by-project' },
-						{ label: 'Create a booking', slug: 'guides/create-a-booking' }
+						{ label: 'Create a booking', slug: 'guides/create-a-booking' },
+						{ label: 'Create a gallery', slug: 'guides/create-a-gallery' },
+						{ label: 'Get all galleries', slug: 'guides/get-all-galleries' }
 					]
 				},
 				{
