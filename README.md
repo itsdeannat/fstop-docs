@@ -1,66 +1,46 @@
-# Fstop API
+# Fstop API Documentation
 
-Fstop is a fictional photography platform built as part of [Beyond the Docs](https://beyond-the-docs.netlify.app/).
+Documentation for the Fstop API, a fictional photography platform built as part of [Beyond the Docs](../beyond-the-docs).
 
-The platform gives photographers a place to manage their work and clients. Photographers can create projects and galleries, upload photos, and manage clients.
+The documentation explores how developers discover and work with an API through a combination of guides, API reference documentation, and SDK examples.
 
-The Fstop API provides a realistic API to work with while exploring the relationship between APIs, OpenAPI specifications, SDKs, and developer documentation.
+> **⚠️ Project status:** The Fstop API and SDK are learning-project artifacts and are not production-ready. The SDK examples in this documentation have not been comprehensively tested against a running API. Don't use them in a production application.
 
-> **⚠️ Project status:** Fstop is a learning and portfolio project, not a production API. It currently runs locally and has not undergone comprehensive testing or production hardening. **Do not use it for production applications**.
+## What's in the documentation?
 
-## What can the API do?
+### Guides
 
-The Fstop API provides resources for managing a photography business, including:
+Conceptual and task-oriented documentation to help developers understand how to work with the Fstop API.
 
-* **Projects**: Create and manage photography projects
-* **Galleries**: Create galleries and associate them with projects
-* **Photos**: Upload and manage photos
-* **Clients**: Create and manage clients
+### API reference
 
-## Documentation
+Reference documentation generated from the Fstop API's OpenAPI specification using [Redocly](https://redocly.com/).
 
-The [Fstop API documentation](https://fstop-docs.netlify.app/) includes:
+The API reference provides detailed information about available endpoints, parameters, request bodies, responses, and schemas.
 
-* API reference documentation
-* Guides and conceptual documentation
-* SDK examples
-* Information about the OpenAPI specification
+### SDK examples
 
-> **Note:** The SDK examples are currently provided for demonstration purposes and have not been comprehensively tested against a running Fstop API. Don't assume they will work as written.
+Code examples showing how developers might interact with the Fstop API using the Fstop Python SDK.
 
-## Running the API locally
+The SDK was generated from the Fstop API's OpenAPI specification.
 
-The Fstop API is currently intended to be run locally for development and experimentation.
+> **Note:** SDK examples have not been comprehensively tested. They are provided for demonstration purposes and may not work as written.
 
-### Setup
+## How the documentation is built
 
-> **Setup instructions coming soon.**
+The documentation site is built with [Astro](https://astro.build/).
 
-Once complete, this section will cover:
+The Fstop API's OpenAPI specification serves as the source for the API reference documentation and SDK generation.
 
-1. Cloning the repository
-2. Creating and activating a virtual environment
-3. Installing dependencies
-4. Configuring environment variables
-5. Setting up the database
-6. Running migrations
-7. Starting the development server
+## Documentation status
 
-## API status
-
-The Fstop API is a work in progress.
-
-| Area                        | Status              |
-| --------------------------- | ------------------- |
-| API implementation          | 🚧 In progress      |
-| OpenAPI specification       | ✅ Available         |
-| API reference documentation | ✅ Available         |
-| Python SDK                  | ✅ Generated         |
-| SDK examples                | ⚠️ Not fully tested |
-| Automated API tests         | 🚧 Future work      |
-| Test data / fixtures        | 🚧 Future work      |
-| Public deployment           | 🚧 Future work      |
-
+| Area               | Status              |
+| ------------------ | ------------------- |
+| Guides             | ✅ Available         |
+| API reference      | ✅ Available         |
+| SDK examples       | ⚠️ Not fully tested |
+| Live API           | 🚧 Not deployed     |
+| Example validation | 🚧 Future work      |
 
 ## About Beyond the Docs
 
