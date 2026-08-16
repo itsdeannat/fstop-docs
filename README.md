@@ -1,49 +1,69 @@
-# Starlight Starter Kit: Basics
+# Fstop API
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Fstop is a fictional photography platform built as part of [Beyond the Docs](https://beyond-the-docs.netlify.app/).
 
-```
-npm create astro@latest -- --template starlight
-```
+The platform gives photographers a place to manage their work and clients. Photographers can create projects and galleries, upload photos, and manage clients.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The Fstop API provides a realistic API to work with while exploring the relationship between APIs, OpenAPI specifications, SDKs, and developer documentation.
 
-## 🚀 Project Structure
+> **⚠️ Project status:** Fstop is a learning and portfolio project, not a production API. It currently runs locally and has not undergone comprehensive testing or production hardening. **Do not use it for production applications**.
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## What can the API do?
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+The Fstop API provides resources for managing a photography business, including:
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+* **Projects**: Create and manage photography projects
+* **Galleries**: Create galleries and associate them with projects
+* **Photos**: Upload and manage photos
+* **Clients**: Create and manage clients
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Documentation
 
-Static assets, like favicons, can be placed in the `public/` directory.
+The [Fstop API documentation](https://fstop-docs.netlify.app/) includes:
 
-## 🧞 Commands
+* API reference documentation
+* Guides and conceptual documentation
+* SDK examples
+* Information about the OpenAPI specification
 
-All commands are run from the root of the project, from a terminal:
+> **Note:** The SDK examples are currently provided for demonstration purposes and have not been comprehensively tested against a running Fstop API. Don't assume they will work as written.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Running the API locally
 
-## 👀 Want to learn more?
+The Fstop API is currently intended to be run locally for development and experimentation.
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+### Setup
+
+> **Setup instructions coming soon.**
+
+Once complete, this section will cover:
+
+1. Cloning the repository
+2. Creating and activating a virtual environment
+3. Installing dependencies
+4. Configuring environment variables
+5. Setting up the database
+6. Running migrations
+7. Starting the development server
+
+## API status
+
+The Fstop API is a work in progress.
+
+| Area                        | Status              |
+| --------------------------- | ------------------- |
+| API implementation          | 🚧 In progress      |
+| OpenAPI specification       | ✅ Available         |
+| API reference documentation | ✅ Available         |
+| Python SDK                  | ✅ Generated         |
+| SDK examples                | ⚠️ Not fully tested |
+| Automated API tests         | 🚧 Future work      |
+| Test data / fixtures        | 🚧 Future work      |
+| Public deployment           | 🚧 Future work      |
+
+
+## About Beyond the Docs
+
+Beyond the Docs is a hands-on project where I built an ecosystem of developer tools to understand how they work and how the technical decisions behind them shape the developer and documentation experience.
+
+[Read the full project story](https://beyond-the-docs.netlify.app/)
