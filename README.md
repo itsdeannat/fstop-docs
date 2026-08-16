@@ -4,7 +4,7 @@ Documentation for the Fstop API, a fictional photography platform built as part 
 
 The documentation explores how developers discover and work with an API through a combination of guides, API reference documentation, and SDK examples.
 
-> **⚠️ Project status:** The Fstop API and SDK are learning-project artifacts and are not production-ready. The SDK examples in this documentation have not been comprehensively tested against a running API. Don't use them in a production application.
+> **⚠️ Project status:** The Fstop API and SDK are learning projects and are not production-ready. The SDK examples in this documentation have not been comprehensively tested against a running API. Don't use them in a production application.
 
 ## What's in the documentation?
 
