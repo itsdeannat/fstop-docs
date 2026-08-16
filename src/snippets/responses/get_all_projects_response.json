@@ -1,0 +1,36 @@
+[
+  {
+    "id": "cc0dd84d-a50d-4ad5-8e94-e9dcb33d00e3",
+    "project_name": "Bob's Birthday Party",
+    "project_type": "party",
+    "client": {
+      "id": "88e0de45-8197-4425-a390-3401348cc0bb",
+      "first_name": "Bob",
+      "last_name": "Barker",
+      "city": "New York",
+      "state": "NY",
+      "zip_code": "07008",
+      "email": "bob.barker@gmail.com",
+      "phone_number": "+12126885200",
+      "created_at": "2026-05-21T01:23:38.570263Z"
+    },
+    "created_at": "2026-05-21T01:30:04.766552Z"
+  },
+  {
+    "id": "660e8400-e29b-41d4-a716-446655440000",
+    "project_name": "Wedding",
+    "project_type": "event",
+    "client": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "first_name": "John",
+      "last_name": "Doe",
+      "city": "Cleveland",
+      "state": "OH",
+      "zip_code": "44122",
+      "email": "john.doe@example.com",
+      "phone_number": "+12161231234",
+      "created_at": "2026-05-21T10:00:00Z"
+    },
+    "created_at": "2026-05-21T10:15:00Z"
+  }
+]

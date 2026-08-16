@@ -7,6 +7,7 @@ import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import { Aside } from '@astrojs/starlight/components';
 import create_project_curl from '/src/snippets/post_requests/create_project_curl.sh?raw';
+import create_project_response from '/src/snippets/responses/create_project_response.json?raw';
 import create_project_sdk from '/src/snippets/sdk/create_project_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to create new projects in the database.
@@ -26,25 +27,7 @@ You'll also need the UUID of an existing client to associate with the project.
    <Code code={create_project_curl} lang="shellscript" title="create_project.sh" />
    
    The API returns a `201 CREATED` and the details of the newly created project:
-   ```json
-   {
-     "id": "660e8400-e29b-41d4-a716-446655440002",
-     "project_name": "Birthday Party",
-     "project_type": "party",
-     "client": {
-       "id": "550e8400-e29b-41d4-a716-446655440002",
-       "first_name": "Alice",
-       "last_name": "Johnson",
-       "city": "Cincinnati",
-       "state": "OH",
-       "zip_code": "45202",
-       "email": "alice.johnson@example.com",
-       "phone_number": "+12161239999",
-       "created_at": "2026-05-21T10:10:00Z"
-     },
-     "created_at": "2026-05-21T10:25:00Z"
-   }
-   ```
+   <Code code={create_project_response} lang="json" title="create_project_response.json" />
 
 2. Using the Python SDK:
    <Code code={create_project_sdk} lang="python" title="create_project.py" />

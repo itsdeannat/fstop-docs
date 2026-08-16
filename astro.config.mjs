@@ -7,7 +7,7 @@ export default defineConfig({
 		starlight({
 			title: 'Fstop API Docs',
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/itsdeannat/fstop-api-docs.git'},
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/itsdeannat/fstop-docs'},
 			],
 			sidebar: [
 				{
@@ -15,22 +15,29 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'About the API', slug: 'guides/about-the-api'},
-						{ label: 'Getting started', slug: 'guides/getting-started' }
+						{ label: 'Getting started', slug: 'guides/getting-started' },
+						{ label: 'Authentication', slug: 'guides/authentication' },
 					],
 				},
 				{
 					label: 'Feature guides',
 					items: [
-						{ label: 'Authentication', slug: 'guides/authentication' },
-						{ label: 'Get all clients', slug: 'guides/get-all-clients' },
-						{ label: 'Get a client by ID', slug: 'guides/get-a-client-by-id' },
-						{ label: 'Create a client', slug: 'guides/create-a-client' },
-						{ label: 'Get all projects', slug: 'guides/get-all-projects' },
-						{ label: 'Get a project by client', slug: 'guides/get-a-project-by-client' },
-						{ label: 'Create a project', slug: 'guides/create-a-project' },
-						{ label: 'Get all bookings', slug: 'guides/get-all-bookings' },
-						{ label: 'Get a booking by project', slug: 'guides/get-a-booking-by-project' },
-						{ label: 'Create a booking', slug: 'guides/create-a-booking' }
+						{
+							label: 'Bookings',
+							items: [{ autogenerate: { directory: 'guides/Bookings' } }]
+						},
+						{
+							label: 'Clients',
+							items: [{ autogenerate: { directory: 'guides/Clients' } }]
+						},
+						{
+							label: 'Galleries',
+							items: [{ autogenerate: { directory: 'guides/Galleries' } }]
+						},
+						{
+							label: 'Projects',
+							items: [{ autogenerate: { directory: 'guides/Projects' } }]
+						}
 					]
 				},
 				{

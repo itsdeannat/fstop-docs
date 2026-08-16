@@ -6,6 +6,7 @@ description: A guide to retrieving all projects using the Fstop API
 import { Steps } from '@astrojs/starlight/components';
 import { Code } from 'astro-expressive-code/components';
 import get_all_projects_curl from '/src/snippets/get_requests/get_all_projects_curl.sh?raw';
+import get_all_projects_response from '/src/snippets/responses/get_all_projects_response.json?raw';
 import get_all_projects_sdk from '/src/snippets/sdk/get_all_projects_sdk.py?raw';
 
 The Fstop API includes an endpoint that allows client applications to retrieve all projects from the database.
@@ -23,27 +24,7 @@ Before you make a `GET` request, ensure that you have an access token. For instr
    <Code code={get_all_projects_curl} lang="shellscript" title="get_all_projects.sh" />
    
    The API returns a `200 OK` and a list of all projects:
-   ```json
-   [
-     {
-       "id": "660e8400-e29b-41d4-a716-446655440000",
-       "project_name": "Wedding",
-       "project_type": "event",
-       "client": {
-         "id": "550e8400-e29b-41d4-a716-446655440000",
-         "first_name": "John",
-         "last_name": "Doe",
-         "city": "Cleveland",
-         "state": "OH",
-         "zip_code": "44122",
-         "email": "john.doe@example.com",
-         "phone_number": "+12161231234",
-         "created_at": "2026-05-21T10:00:00Z"
-       },
-       "created_at": "2026-05-21T10:15:00Z"
-     }
-   ]
-   ```
+   <Code code={get_all_projects_response} lang="json" title="get_all_projects_response.json" />
 
 2. Using the Python SDK:
    <Code code={get_all_projects_sdk} lang="python" title="get_all_projects.py" />

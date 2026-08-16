@@ -1,49 +1,49 @@
-# Starlight Starter Kit: Basics
+# Fstop API Documentation
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Documentation for the Fstop API, a fictional photography platform built as part of [Beyond the Docs](../beyond-the-docs).
 
-```
-npm create astro@latest -- --template starlight
-```
+The documentation explores how developers discover and work with an API through a combination of guides, API reference documentation, and SDK examples.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> **⚠️ Project status:** The Fstop API and SDK are learning projects and are not production-ready. The SDK examples in this documentation have not been comprehensively tested against a running API. Don't use them in a production application.
 
-## 🚀 Project Structure
+## What's in the documentation?
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+### Guides
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+Conceptual and task-oriented documentation to help developers understand how to work with the Fstop API.
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+### API reference
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+Reference documentation generated from the Fstop API's OpenAPI specification using [Redocly](https://redocly.com/).
 
-Static assets, like favicons, can be placed in the `public/` directory.
+The API reference provides detailed information about available endpoints, parameters, request bodies, responses, and schemas.
 
-## 🧞 Commands
+### SDK examples
 
-All commands are run from the root of the project, from a terminal:
+Code examples showing how developers might interact with the Fstop API using the Fstop Python SDK.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+The SDK was generated from the Fstop API's OpenAPI specification.
 
-## 👀 Want to learn more?
+> **Note:** SDK examples have not been comprehensively tested. They are provided for demonstration purposes and may not work as written.
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+## How the documentation is built
+
+The documentation site is built with [Astro](https://astro.build/).
+
+The Fstop API's OpenAPI specification serves as the source for the API reference documentation and SDK generation.
+
+## Documentation status
+
+| Area               | Status              |
+| ------------------ | ------------------- |
+| Guides             | ✅ Available         |
+| API reference      | ✅ Available         |
+| SDK examples       | ⚠️ Not fully tested |
+| Live API           | 🚧 Not deployed     |
+| Example validation | 🚧 Future work      |
+
+## About Beyond the Docs
+
+Beyond the Docs is a hands-on project where I built an ecosystem of developer tools to understand how they work and how the technical decisions behind them shape the developer and documentation experience.
+
+[Read the full project story](https://beyond-the-docs.netlify.app/)
