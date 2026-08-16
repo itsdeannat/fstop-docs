@@ -29,7 +29,7 @@ To sign up for the API:
 <Steps>
 1. Open a terminal and run the following command to create a new user account:
    ```bash
-   curl -X POST http://localhost:8000/api/users/ \
+   curl -X POST http://localhost:8000/api/signup/ \
      -H "Content-Type: application/json" \
      -d '{
        "username": "your_username",
@@ -37,11 +37,10 @@ To sign up for the API:
      }'
    ```
    
-   You'll receive a response confirming your account was created:
+   You'll see a message confirming your account was created:
    ```json
    {
-     "id": 1,
-     "username": "your_username"
+    "message": "Signup successful!"
    }
    ```
 
